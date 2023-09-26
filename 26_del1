@@ -1,5 +1,49 @@
+import java.util.Scanner;
+
 public class 26_del1 {
   public static void main(String[] args) {
-    
-  }
+    var scanner = new java.util.Scanner(System.in); //opret scanner objekt for at kunne læse input
+
+    System.out.println("Welcome to the dice game! Would you like to play?");
+
+    var input = scanner.nextLine(); //læs og gæm input
+
+    //disse variabler er type 'double', for at kunne bruge random funktionen længere nede i koden, der ellers ikke vil virke.
+    double player1Count = 0;
+    double player2Count = 0;
+
+
+    if (input.equals("no")) {
+        System.out.println("Are you sure?");
+        input = scanner.nextLine();
+        if (input.equals("yes")) {
+            System.out.println("Game ended.");
+            System.exit(0);
+            scanner.close();
+        }else if (input.equals("no")) {
+            System.out.println("Okay, the game will continue.");
+        }
+    }
+        
+    System.out.println("Player 1's turn! Here's the throw:");
+    player1Count = Math.floor(Math.random() *(12 - 1 + 1) + 1);
+    System.out.println(player1Count);
+
+    System.out.println("Player 2's turn! Do you wish to throw?");
+    input = scanner.nextLine();
+    if (input.equals("no")) {
+        System.out.println("Are you sure?");
+        input = scanner.nextLine();
+        if (input.equals("yes")) {
+            System.out.println("Game ended.");
+            System.exit(0);
+            scanner.close();
+        }else if (input.equals("no")) {
+            System.out.println("Okay, the game will continue.");
+        }
+    }
+
+    player2Count = Math.floor(Math.random() *(12 - 1 + 1) + 1);
+    System.out.println(player2Count);
+    }
 }
